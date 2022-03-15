@@ -1,0 +1,362 @@
+//
+// 通用样式定义
+//
+@import "constants";
+@import "margin";
+@import "font";
+
+html,
+body,
+div,
+span,
+p,
+form,
+input,
+label {
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * 基础的通用样式
+ */
+
+/****** flex布局 ******/
+.flex1 {
+    flex: 1;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.row-center {
+    .row;
+    justify-content: center;
+}
+
+.row-end {
+    .row;
+    justify-content: flex-end;
+}
+
+.row-between {
+    .row;
+    justify-content: space-between;
+}
+
+.row-around {
+    .row;
+    justify-content: space-around;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.column-center {
+    .column;
+    align-items: center;
+}
+
+.column-end {
+    .column;
+    justify-content: flex-end;
+}
+
+.column-around {
+    .column;
+    justify-content: space-around;
+}
+
+.column-between {
+    .column;
+    justify-content: space-between;
+}
+
+.align-start {
+    align-items: flex-start;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.align-end {
+    align-items: flex-end;
+}
+
+.align-stretch {
+    align-items: stretch;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.round {
+    border-radius: 50%;
+}
+
+/****** 圆角 ******/
+
+/****** 圆角 ******/
+.r8 {
+    .radius(8);
+}
+
+.r10 {
+    .radius(10);
+}
+
+.r12 {
+    .radius(12);
+}
+
+.r16 {
+    .radius(16);
+}
+
+.rt8 {
+    .radius(8 8 0 0);
+}
+
+.rb8 {
+    .radius(0 0 8 8);
+}
+
+.r500 {
+    .radius(500); // 胶囊
+}
+
+
+/****** 边框 *****/
+.bd {
+    border: @border;
+}
+
+.bd-t {
+    border-top: @border;
+}
+
+.bd-b {
+    border-bottom: @border;
+}
+
+
+.bd-i-t {
+    position: relative;
+
+    &:after {
+        .bd-t;
+        content: " ";
+        position: absolute;
+        bottom: 0;
+        height: rpx(2);
+        color: @color-border;
+        -webkit-transform-origin: 0 100%;
+        transform-origin: 0 100%;
+        -webkit-transform: scaleY(0.5);
+        transform: scaleY(0.5);
+        left: rpx(32);
+        right: rpx(32);
+    }
+}
+
+.bd-i-b {
+    position: relative;
+
+    &:after {
+        .bd-b;
+        content: " ";
+        position: absolute;
+        bottom: 0;
+        height: rpx(2);
+        color: @color-border;
+        -webkit-transform-origin: 0 100%;
+        transform-origin: 0 100%;
+        -webkit-transform: scaleY(0.5);
+        transform: scaleY(0.5);
+        left: rpx(32);
+        right: rpx(32);
+    }
+}
+
+
+/****** 悬浮框 ******/
+.float-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .4);
+    z-index: 1000;
+}
+
+.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    z-index: 999;
+}
+
+
+/****** 行数隐藏 *******/
+.line-one {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: break-all;
+}
+
+.line-two {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.line-three {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+
+/****** 显示隐藏 ******/
+.hide {
+    display: none;
+}
+
+.relative {
+    position: relative;
+}
+
+.border-box {
+    box-sizing: border-box;
+}
+
+/******* 宽 高 ******/
+.m-h-100 {
+    min-height: 100%;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+
+//****** 通用背景 ******/
+.bg-white {
+    background-color: @color-bg-white;
+}
+
+.bg-gray {
+    background-color: @color-bg-gray;
+}
+
+.bg-img {
+    background-color: @color-bg-image;
+    position: relative;
+    z-index: 1;
+
+    &::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        content: '园区贷';
+        color: #bcc6cf;
+        z-index: -1;
+        font-size: rpx(40);
+    }
+}
+
+.bg-img-sm {
+    background-color: @color-bg-image;
+    position: relative;
+    z-index: 1;
+
+    &::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        content: '园区贷';
+        color: #bcc6cf;
+        z-index: -1;
+        font-size: rpx(20);
+    }
+}
+
+/*******内容为空********/
+.empty {
+    width: 100%;
+    padding-top: 280px;
+    text-align: center;
+    font-size: 16px;
+    color: #666666;
+    margin-bottom: 50px;
+}
+
+.oh {
+    overflow: hidden;
+}
+
+/*伪类返回箭头*/
+.icon-goback {
+    height: 30px;
+    position: relative;
+
+    &:after {
+        content: '';
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        left: 20px;
+        top: 10px;
+        border-bottom: 1px solid @color-primary;
+        border-left: 1px solid @color-primary;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+    }
+}
+
+.btn-submit {
+    min-width: 177px;
+    padding: 10px 20px;
+    background: linear-gradient(
+        @color-primary 0%,
+        @color-primary-lighten 100%
+    );
+    box-shadow: 0 4px 5px 1px #cfcfce;
+    border: none;
+    border-radius: 500px;
+    font-size: @text-xxxxl;
+    font-weight: bold;
+    color: @color-white;
+    letter-spacing: 5px;
+}

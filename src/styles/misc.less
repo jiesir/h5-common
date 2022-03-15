@@ -1,0 +1,42 @@
+//
+// 通用样式定义
+//
+@import "./constants";
+
+.image-size(@size) {
+    min-height: @size;
+    min-width: @size;
+    height: @size;
+    width: @size;
+    vertical-align: middle;
+}
+
+.radius(@size) {
+    border-radius: @size;
+}
+
+.mh(@size) {
+    margin-left: @size;
+    margin-right: @size;
+}
+
+.mv(@size) {
+    margin-top: @size;
+    margin-bottom: @size;
+}
+
+.ph(@size) {
+    padding-left: @size;
+    padding-right: @size;
+}
+
+.pv(@size) {
+    padding-top: @size;
+    padding-bottom: @size;
+}
+
+.divider(@size, @bg: #fff) {
+    width: 100%;
+    height: @size;
+    background-color: @bg;
+}
